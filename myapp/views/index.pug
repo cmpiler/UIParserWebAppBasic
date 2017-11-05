@@ -74,45 +74,75 @@ block content
           r.readAsText(file);
           r.onloadend = function(){
               console.log("File contents: "+r.result);
-
               createUI(r.result);
           }
         }
 
-      function createUI(jsonString){
+      function createUI(jsonString, layerCount){
         var json = JSON.parse(r.result);
 
-        for (var key in json) {
+        var layerCount = 0;
+        for(var key in json){
           if(key.length > 1){
             for(var c = 0;c < key.length;c++){
               try{
-                if (json.hasOwnProperty(key)) {
-                  var locX = json[key][c]["locationx"];
-                  var locY = json[key][c]["locationy"];
-                  var w = json[key][c]["width"];
-                  var h = json[key][c]["height"];
-                  var text = json[key][c]["text"];
-                  var uiType = json[key][c]["type"];
-                  var layer = json[key][c]["layer"];
-                  
-                  addElement(locX, locY, w, h, text, uiType, layer);
+                if(json[key][c]["locationx"]){
+                  layerCount++;
                 }
               }catch(e){
-                if (json.hasOwnProperty(key)) {
-                  var locX = json[key]["locationx"];
-                  var locY = json[key]["locationy"];
-                  var w = json[key]["width"];
-                  var h = json[key]["height"];
-                  var text = json[key]["text"];
-                  var uiType = json[key]["type"];
-                  var layer = json[key]["layer"];
-
-                  addElement(locX, locY, w, h, text, uiType, layer);
+                if(json[key]["locationx"]){
+                  layerCount++;
                 }
               }
             }
           }
-          
+        }
+        console.log("there are " + layerCount + " layers in UI");
+
+        for(var lyrCtr = 0;lyrCtr < layerCount;lyrCtr++){
+          for (var key in json) {
+            if(key.length > 1){
+              for(var c = 0;c < key.length;c++){
+                try{
+                  if (json.hasOwnProperty(key)) {
+                    var locX = json[key][c]["locationx"];
+                    var locY = json[key][c]["locationy"];
+                    var w = json[key][c]["width"];
+                    var h = json[key][c]["height"];
+                    var text = json[key][c]["text"];
+                    var uiType = json[key][c]["type"];
+                    var layer = json[key][c]["layer"];
+                    
+                    try{
+                      if (parseInt(layer) == lyrCtr){
+                        addElement(locX, locY, w, h, text, uiType, layer);
+                      }
+                    }catch(ce){
+                      console.log("parse err?: " + ce)
+                    }
+                  }
+                }catch(e){
+                  if (json.hasOwnProperty(key)) {
+                    var locX = json[key]["locationx"];
+                    var locY = json[key]["locationy"];
+                    var w = json[key]["width"];
+                    var h = json[key]["height"];
+                    var text = json[key]["text"];
+                    var uiType = json[key]["type"];
+                    var layer = json[key]["layer"];
+
+                    try{
+                      if (parseInt(layer) == lyrCtr){
+                        addElement(locX, locY, w, h, text, uiType, layer);
+                      }
+                    }catch(ce){
+                      console.log("parse err?: " + ce)
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
 
@@ -181,8 +211,6 @@ block content
         }catch(e){
           console.log(e)
         }
-        //var t = document.createTextNode(text);  
-        //txt.appendChild(t);
         txt.setAttribute("value", text)
         document.body.appendChild(txt);
         addBr();addBr();

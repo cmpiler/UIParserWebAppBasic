@@ -5,14 +5,16 @@
         "width": "137",
         "text": "Right",
         "type": "txt",
-        "height": "60"
+        "height": "60",
+        "layer": "3"
     }, {
         "locationy": "230",
         "locationx": "278",
         "width": "138",
         "text": "Left",
         "type": "txt",
-        "height": "55"
+        "height": "55",
+        "layer": "0"
     }],
     "lbl": [{
         "locationy": "81",
@@ -20,7 +22,8 @@
         "width": "84",
         "text": "Label",
         "type": "lbl",
-        "height": "24"
+        "height": "24",
+        "layer": "2"
     }],
     "btn": [{
         "locationy": "396",
@@ -28,6 +31,7 @@
         "width": "84",
         "text": "Button",
         "type": "btn",
-        "height": "24"
+        "height": "24",
+        "layer": "1"
     }]
 }
