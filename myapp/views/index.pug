@@ -82,7 +82,7 @@ block content
         }
 
       function createUI(jsonString){
-        var json = JSON.parse(r.result);
+        var json = JSON.parse(jsonString);
 
         // first, get layer count
         var layerCount = 0;
@@ -169,7 +169,7 @@ block content
 
         if (uiType === "lbl"){
           addLbl(w, h, locX, locY, text);
-          alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
+          //alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
         }else if (uiType === "btn"){
           addBtn(w, h, locX, locY, text);
         }else if(uiType === "txt"){
