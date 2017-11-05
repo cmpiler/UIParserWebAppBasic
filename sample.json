@@ -1,0 +1,20 @@
+{
+    "lbl": 
+        {
+            "location": "location here",
+            "text": "text on label here",
+            "type": "lbl"
+        },
+    "btn": 
+        {
+            "location": "location here",
+            "text": "text on btn here",
+            "type": "btn"
+        },
+    "txt": 
+        {
+            "location": "location here",
+            "text": "text on txt here",
+            "type": "txt"
+        }
+}
