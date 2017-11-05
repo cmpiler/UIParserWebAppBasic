@@ -88,16 +88,14 @@ block content
         var layerCount = 0;
         for(var key in json){
           // different json structures if ui element key contains several values in array
-          if(key.length > 1){
-            for(var c = 0;c < key.length;c++){
-              try{
-                if(json[key][c]["locationx"]){
-                  layerCount++;
-                }
-              }catch(e){// so we need backup code if it hits a key that contains only 1 value in array
-                if(json[key]["locationx"]){
-                  layerCount++;
-                }
+          for(var c = 0;c < json[key].length;c++){
+            try{
+              if(json[key][c]["locationx"]){
+                layerCount++;
+              }
+            }catch(e){// so we need backup code if it hits a key that contains only 1 value in array
+              if(json[key]["locationx"]){
+                layerCount++;
               }
             }
           }
@@ -109,9 +107,9 @@ block content
           // for each ui element in json object
           for (var key in json) {
             // if there are more than 1 of this type of ui element
-            if(key.length > 1){
+            if(json[key].length > 1){
               // loop through the properties of this ui element
-              for(var c = 0;c < key.length;c++){
+              for(var c = 0;c < json[key].length;c++){
                 try{
                   if (json.hasOwnProperty(key)) {
                     //add all elements of same type

@@ -1,37 +1,85 @@
 {
     "txt": [{
-        "locationy": "230",
-        "locationx": "654",
-        "width": "137",
-        "text": "Right",
-        "type": "txt",
-        "height": "60",
-        "layer": "3"
-    }, {
-        "locationy": "230",
-        "locationx": "278",
-        "width": "138",
-        "text": "Left",
-        "type": "txt",
-        "height": "55",
-        "layer": "0"
-    }],
-    "lbl": [{
-        "locationy": "81",
-        "locationx": "451",
+        "locationy": "59",
+        "locationx": "121",
         "width": "84",
-        "text": "Label",
-        "type": "lbl",
-        "height": "24",
-        "layer": "2"
+        "text": "Textbox",
+        "type": "txt",
+        "layer": "0",
+        "height": "24"
+    }, {
+        "locationy": "77",
+        "locationx": "150",
+        "width": "84",
+        "text": "Textbox",
+        "type": "txt",
+        "layer": "1",
+        "height": "24"
+    }, {
+        "locationy": "93",
+        "locationx": "193",
+        "width": "84",
+        "text": "Textbox",
+        "type": "txt",
+        "layer": "2",
+        "height": "34"
+    }, {
+        "locationy": "118",
+        "locationx": "225",
+        "width": "84",
+        "text": "Textbox",
+        "type": "txt",
+        "layer": "3",
+        "height": "24"
+    }, {
+        "locationy": "134",
+        "locationx": "256",
+        "width": "84",
+        "text": "Textbox",
+        "type": "txt",
+        "layer": "4",
+        "height": "24"
+    }, {
+        "locationy": "151",
+        "locationx": "299",
+        "width": "84",
+        "text": "Textbox",
+        "type": "txt",
+        "layer": "5",
+        "height": "24"
     }],
+    "lbl": [],
     "btn": [{
-        "locationy": "396",
+        "locationy": "341",
+        "locationx": "416",
+        "width": "84",
+        "text": "Button",
+        "type": "btn",
+        "layer": "6",
+        "height": "24"
+    }, {
+        "locationy": "324",
         "locationx": "455",
         "width": "84",
         "text": "Button",
         "type": "btn",
-        "height": "24",
-        "layer": "1"
+        "layer": "7",
+        "height": "24"
+    }, {
+        "locationy": "310",
+        "locationx": "498",
+        "width": "84",
+        "text": "Button",
+        "type": "btn",
+        "layer": "8",
+        "height": "24"
+    }, {
+        "locationy": "295",
+        "locationx": "534",
+        "width": "84",
+        "text": "Button",
+        "type": "btn",
+        "layer": "9",
+        "height": "24"
     }]
 }
