@@ -20,6 +20,7 @@ block content
   body(min-height='100%', min-width='100%')
     script.
       var dropbox;
+      //create, set drag and drop event handlers
       function dragenter(e) {
         e.stopPropagation();
         e.preventDefault();
@@ -44,6 +45,7 @@ block content
       console.log("window dimensions are "+window.innerWidth+", "+window.innerHeight);
       console.log("body dimensions are "+ documentWidth()+", "+documentHeight());
 
+      //util funcs to check window resolution
       function documentHeight() {
           return Math.max(
               document.documentElement.clientHeight,
@@ -63,6 +65,7 @@ block content
           );
       }
 
+      // extract the file object(s) that was/were drag and dropped by the user
       function processFile(files){
         var file = files[0];
         if(files.length === 0) {
@@ -81,6 +84,7 @@ block content
       function createUI(jsonString, layerCount){
         var json = JSON.parse(r.result);
 
+        // first, get layer count
         var layerCount = 0;
         for(var key in json){
           if(key.length > 1){
@@ -99,12 +103,14 @@ block content
         }
         console.log("there are " + layerCount + " layers in UI");
 
+        //now add elements in order of respective layer
         for(var lyrCtr = 0;lyrCtr < layerCount;lyrCtr++){
           for (var key in json) {
             if(key.length > 1){
               for(var c = 0;c < key.length;c++){
                 try{
                   if (json.hasOwnProperty(key)) {
+                    //add all elements of same type
                     var locX = json[key][c]["locationx"];
                     var locY = json[key][c]["locationy"];
                     var w = json[key][c]["width"];
@@ -123,6 +129,7 @@ block content
                   }
                 }catch(e){
                   if (json.hasOwnProperty(key)) {
+                    //add all elements of which only 1 type exist
                     var locX = json[key]["locationx"];
                     var locY = json[key]["locationy"];
                     var w = json[key]["width"];
