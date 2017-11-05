@@ -5,9 +5,9 @@ To run:
 cd myapp && npm install
 DEBUG=myapp:* npm start
 
-If the above doesnt work, then;
+If the webpage doesnt load after entering the above, then;
 1. Copy views/index.pug
-2. Make a new folder
+2. Make a new folder OUTSIDE THIS REPO - repeat: DO NOT DO THIS IN THIS ROOT FOLDER
 3. Enter in command window:
 express --view=pug myapp
 cd myapp && npm install
