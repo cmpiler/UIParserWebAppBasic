@@ -2,14 +2,14 @@
     "lbl": 
         {
             "locationx": "50",
-            "locationy": "50",
+            "locationy": "200",
             "text": "text on label here",
             "type": "lbl"
         },
     "btn": 
         {
             "locationx": "200",
-            "locationy": "50",
+            "locationy": "200",
             "text": "text on btn here",
             "type": "btn"
         },

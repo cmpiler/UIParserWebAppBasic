@@ -132,8 +132,6 @@ block content
         
         txt.appendChild(t);
         document.body.appendChild(txt);
-        txt.style.left = locX+px;
-        txt.style.top = locY+px;
         addBr();addBr();
       }
       function addBr(){
@@ -142,9 +140,6 @@ block content
       }
       function createUIID(type, locX, locY){
         return type+locX+','+locY;
-      }
-      function normalizeCoordinates(x, y){
-        //?
       }
 
       }
