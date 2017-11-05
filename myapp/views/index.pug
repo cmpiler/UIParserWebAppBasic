@@ -17,7 +17,7 @@ block content
       overflow: hidden;
       background-color: #F0F0F0;
       }
-  body
+  body(min-height='100%', min-width='100%')
     script.
       var dropbox;
       function dragenter(e) {
@@ -39,6 +39,29 @@ block content
       dropbox.addEventListener("dragenter", dragenter, false);
       dropbox.addEventListener("dragover", dragover, false);
       dropbox.addEventListener("drop", drop, false);
+
+      //var page = document.querySelector("html");
+      console.log("window dimensions are "+window.innerWidth+", "+window.innerHeight);
+      console.log("body dimensions are "+ documentWidth()+", "+documentHeight());
+
+      function documentHeight() {
+          return Math.max(
+              document.documentElement.clientHeight,
+              document.body.scrollHeight,
+              document.documentElement.scrollHeight,
+              document.body.offsetHeight,
+              document.documentElement.offsetHeight
+          );
+      }
+      function documentWidth() {
+          return Math.max(
+              document.documentElement.clientWidth,
+              document.body.scrollWidth,
+              document.documentElement.scrollWidth,
+              document.body.offsetWidth,
+              document.documentElement.offsetWidth
+          );
+      }
 
       function processFile(files){
         var file = files[0];

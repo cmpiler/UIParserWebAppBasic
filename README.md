@@ -2,8 +2,9 @@
 
 To run:
 
-cd myapp && npm install
-DEBUG=myapp:* npm start
+Enter in command window:
+Step 1: cd myapp && npm install
+Step 2: DEBUG=myapp:* npm start
 
 If the webpage doesnt load after entering the above, then;
 1. Copy views/index.pug
