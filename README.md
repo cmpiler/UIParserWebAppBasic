@@ -2,8 +2,8 @@
 
 To run:
 
-Enter in command window:/n
-Step 1: cd myapp && npm install/n
+Enter in command window:
+Step 1: cd myapp && npm install
 Step 2: DEBUG=myapp:* npm start
 
 If the webpage doesnt load after entering the above, then;
