@@ -87,13 +87,14 @@ block content
         // first, get layer count
         var layerCount = 0;
         for(var key in json){
+          // different json structures if ui element key contains several values in array
           if(key.length > 1){
             for(var c = 0;c < key.length;c++){
               try{
                 if(json[key][c]["locationx"]){
                   layerCount++;
                 }
-              }catch(e){
+              }catch(e){// so we need backup code if it hits a key that contains only 1 value in array
                 if(json[key]["locationx"]){
                   layerCount++;
                 }
@@ -105,8 +106,11 @@ block content
 
         //now add elements in order of respective layer
         for(var lyrCtr = 0;lyrCtr < layerCount;lyrCtr++){
+          // for each ui element in json object
           for (var key in json) {
+            // if there are more than 1 of this type of ui element
             if(key.length > 1){
+              // loop through the properties of this ui element
               for(var c = 0;c < key.length;c++){
                 try{
                   if (json.hasOwnProperty(key)) {
@@ -120,14 +124,15 @@ block content
                     var layer = json[key][c]["layer"];
                     
                     try{
+                      // convert layer string to int value, catch error if fail
                       if (parseInt(layer) == lyrCtr){
                         addElement(locX, locY, w, h, text, uiType, layer);
                       }
-                    }catch(ce){
+                    }catch(ce){// move to next iteration and skip this if fail
                       console.log("parse err?: " + ce)
                     }
                   }
-                }catch(e){
+                }catch(e){//some json objects are in arrays and some aren't, different file structure throws exception, so need 2 code branches to handel it
                   if (json.hasOwnProperty(key)) {
                     //add all elements of which only 1 type exist
                     var locX = json[key]["locationx"];
@@ -139,10 +144,11 @@ block content
                     var layer = json[key]["layer"];
 
                     try{
+                      // convert layer string to int value, catch error if fail
                       if (parseInt(layer) == lyrCtr){
                         addElement(locX, locY, w, h, text, uiType, layer);
                       }
-                    }catch(ce){
+                    }catch(ce){// move to next iteration and skip this if fail
                       console.log("parse err?: " + ce)
                     }
                   }
@@ -201,7 +207,6 @@ block content
           console.log(e)
         }
         var t = document.createTextNode(text);  
-
         btn.appendChild(t);
         document.body.appendChild(btn);
         addBr();addBr();
@@ -222,10 +227,12 @@ block content
         document.body.appendChild(txt);
         addBr();addBr();
       }
+      // add newline to html document
       function addBr(){
         var br = document.createElement("BR");
         document.body.appendChild(br);
       }
+      // just a formatted standard for html tag id attribute
       function createUIID(type, locX, locY){
         return type+locX+','+locY;
       }
