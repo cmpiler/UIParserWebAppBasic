@@ -3,6 +3,8 @@
         {
             "locationx": "50",
             "locationy": "200",
+            "width": "80",
+            "height": "40",
             "text": "text on label here",
             "type": "lbl"
         },
@@ -10,6 +12,8 @@
         {
             "locationx": "200",
             "locationy": "200",
+            "width": "80",
+            "height": "40",
             "text": "text on btn here",
             "type": "btn"
         },
@@ -17,6 +21,8 @@
         {
             "locationx": "400",
             "locationy": "200",
+            "width": "80",
+            "height": "40",
             "text": "text on txt here",
             "type": "txt"
         }

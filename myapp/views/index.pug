@@ -65,18 +65,20 @@ block content
 
             var locX = json[key]["locationx"];
             var locY = json[key]["locationy"];
+            var w = json[key]["width"];
+            var h = json[key]["height"];
             var text = json[key]["text"];
             var uiType = json[key]["type"];
 
             addBr();addBr();
 
             if (uiType === "lbl"){
-              addLbl(locX, locY, text);
+              addLbl(w, h, locX, locY, text);
               alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
             }else if (uiType === "btn"){
-              addBtn(locX, locY, text);
+              addBtn(w, h, locX, locY, text);
             }else if(uiType === "txt"){
-              addTxt(locX, locY, text);
+              addTxt(w, h, locX, locY, text);
             }
 
           }
@@ -86,12 +88,14 @@ block content
       var px = "px";
       var topPadding = 150;
 
-      function addLbl(locX, locY, text){
+      function addLbl(w, h, locX, locY, text){
         var lbl = document.createElement("LABEL"); 
         try{
           lbl.style.position="absolute";
           lbl.style.left = locX+px;
           lbl.style.top = (parseInt(locY)+topPadding).toString()+px;
+          lbl.style.width = w+px;
+          lbl.style.height = h+px;
         }catch(e){
           console.log(e)
         }
@@ -102,13 +106,15 @@ block content
         document.body.appendChild(lbl);
         addBr();addBr();
       }
-      function addBtn(locX, locY, text){
+      function addBtn(w, h, locX, locY, text){
         var btn = document.createElement("BUTTON"); 
         try{
           btn.id = createUIID("btn", locX, locY);
           btn.style.position="absolute";
           btn.style.top = (parseInt(locY)+topPadding).toString()+px;
           btn.style.left = locX+px;
+          btn.style.width = w+px;
+          btn.style.height = h+px;
         }catch(e){
           console.log(e)
         }
@@ -118,13 +124,15 @@ block content
         document.body.appendChild(btn);
         addBr();addBr();
       }
-      function addTxt(locX, locY, text){
+      function addTxt(w, h, locX, locY, text){
         var txt = document.createElement("INPUT"); 
         txt.id = createUIID("txt", locX, locY);
         try{
           txt.style.position="absolute";
           txt.style.left = locX+px;
           txt.style.top = (parseInt(locY)+topPadding).toString()+px;
+          txt.style.width = w+px;
+          txt.style.height = h+px;
         }catch(e){
           console.log(e)
         }
