@@ -1,6 +1,6 @@
 # UIParserWebAppBasic
 
-To run:
+To run in Unix systems (coming from Mac):
 
 Enter in command window:
 1. cd myapp && npm install

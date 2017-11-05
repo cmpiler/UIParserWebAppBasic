@@ -1,29 +1,33 @@
 {
-    "lbl": 
-        {
-            "locationx": "50",
-            "locationy": "200",
-            "width": "80",
-            "height": "40",
-            "text": "text on label here",
-            "type": "lbl"
-        },
-    "btn": 
-        {
-            "locationx": "200",
-            "locationy": "200",
-            "width": "80",
-            "height": "40",
-            "text": "text on btn here",
-            "type": "btn"
-        },
-    "txt": 
-        {
-            "locationx": "400",
-            "locationy": "200",
-            "width": "80",
-            "height": "40",
-            "text": "text on txt here",
-            "type": "txt"
-        }
+    "txt": [{
+        "locationy": "230",
+        "locationx": "654",
+        "width": "137",
+        "text": "Right",
+        "type": "txt",
+        "height": "60"
+    }, {
+        "locationy": "230",
+        "locationx": "278",
+        "width": "138",
+        "text": "Left",
+        "type": "txt",
+        "height": "55"
+    }],
+    "lbl": [{
+        "locationy": "81",
+        "locationx": "451",
+        "width": "84",
+        "text": "Label",
+        "type": "lbl",
+        "height": "24"
+    }],
+    "btn": [{
+        "locationy": "396",
+        "locationx": "455",
+        "width": "84",
+        "text": "Button",
+        "type": "btn",
+        "height": "24"
+    }]
 }

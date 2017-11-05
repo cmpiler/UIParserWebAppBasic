@@ -83,28 +83,60 @@ block content
         var json = JSON.parse(r.result);
 
         for (var key in json) {
-          if (json.hasOwnProperty(key)) {
-            console.log(json[key]["type"] + ", " +json[key]["locationx"] + ", " + json[key]["text"]);
+          if(key.length > 1){
+            for(var c = 0;c < key.length;c++){
+              try{
+                if (json.hasOwnProperty(key)) {
+                  var locX = json[key][c]["locationx"];
+                  var locY = json[key][c]["locationy"];
+                  var w = json[key][c]["width"];
+                  var h = json[key][c]["height"];
+                  var text = json[key][c]["text"];
+                  var uiType = json[key][c]["type"];
+                  var layer = json[key][c]["layer"];
 
-            var locX = json[key]["locationx"];
-            var locY = json[key]["locationy"];
-            var w = json[key]["width"];
-            var h = json[key]["height"];
-            var text = json[key]["text"];
-            var uiType = json[key]["type"];
+                  console.log(locX + ", " +locY + ", " + text);
 
-            addBr();addBr();
+                  addBr();addBr();
 
-            if (uiType === "lbl"){
-              addLbl(w, h, locX, locY, text);
-              alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
-            }else if (uiType === "btn"){
-              addBtn(w, h, locX, locY, text);
-            }else if(uiType === "txt"){
-              addTxt(w, h, locX, locY, text);
+                  if (uiType === "lbl"){
+                    addLbl(w, h, locX, locY, text);
+                    alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
+                  }else if (uiType === "btn"){
+                    addBtn(w, h, locX, locY, text);
+                  }else if(uiType === "txt"){
+                    addTxt(w, h, locX, locY, text);
+                  }
+
+                }
+              }catch(e){
+                if (json.hasOwnProperty(key)) {
+                  var locX = json[key]["locationx"];
+                  var locY = json[key]["locationy"];
+                  var w = json[key]["width"];
+                  var h = json[key]["height"];
+                  var text = json[key]["text"];
+                  var uiType = json[key]["type"];
+                  var layer = json[key]["layer"];
+
+                  console.log(locX + ", " +locY + ", " + text);
+
+                  addBr();addBr();
+
+                  if (uiType === "lbl"){
+                    addLbl(w, h, locX, locY, text);
+                    alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
+                  }else if (uiType === "btn"){
+                    addBtn(w, h, locX, locY, text);
+                  }else if(uiType === "txt"){
+                    addTxt(w, h, locX, locY, text);
+                  }
+
+                }
+              }
             }
-
           }
+          
         }
       }
 
