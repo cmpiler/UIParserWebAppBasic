@@ -3,16 +3,21 @@ extends layout
 block content
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
   h1 CMPILERPROS UI Parser Demo
-  p Let's start by dragging and dropping a JSON file below
+  p Let's start by dragging and dropping a JSON file between the title and this text
   head
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script.
       $(document).ready(function(){
       $(":file").css("background-color", "blue");
       });
+    style.
+      body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+      }
   body
-    form(action='')
-      input(type='file', name='myfile', accept='.json', id='dropper')
     script.
       var dropbox;
       function dragenter(e) {
@@ -30,7 +35,7 @@ block content
         var files = dt.files;
         processFile(files);
       }
-      dropbox = document.querySelector("input");
+      dropbox = document.querySelector("body");
       dropbox.addEventListener("dragenter", dragenter, false);
       dropbox.addEventListener("dragover", dragover, false);
       dropbox.addEventListener("drop", drop, false);
@@ -53,49 +58,56 @@ block content
 
       function createUI(jsonString){
         var json = JSON.parse(r.result);
-        console.log("First value is: " + json.lbl.location);
 
         for (var key in json) {
           if (json.hasOwnProperty(key)) {
-            console.log(json[key]["type"] + ", " +json[key]["location"] + ", " + json[key]["text"]);
+            console.log(json[key]["type"] + ", " +json[key]["locationx"] + ", " + json[key]["text"]);
 
-            var loc = json[key]["location"];
+            var locX = json[key]["locationx"];
+            var locY = json[key]["locationy"];
             var text = json[key]["text"];
             var uiType = json[key]["type"];
 
             addBr();addBr();
 
             if (uiType === "lbl"){
-              addLbl(loc, text);
+              addLbl(locX, locY, text);
             }else if (uiType === "btn"){
-              addBtn(loc, text);
+              addBtn(locX, locY, text);
             }else if(uiType === "txt"){
-              addTxt(loc, text);
+              addTxt(locX, locY, text);
             }
 
           }
         }
       }
 
-      function addLbl(location, text){
-        var btn = document.createElement("LABEL"); 
+      var px = "px";
+      function addLbl(locX, locY, text){
+        var lbl = document.createElement("LABEL"); 
+        lbl.id = "lbl"
         var t = document.createTextNode(text);  
-        btn.appendChild(t);
-        document.body.appendChild(btn);
+        lbl.appendChild(t);
+        document.body.appendChild(lbl);
+        document.getElementById("lbl").style.left = "100px";
         addBr();addBr();
       }
-      function addBtn(location, text){
+      function addBtn(locX, locY, text){
         var btn = document.createElement("BUTTON"); 
+        btn.style.left = locX+px;
+        btn.style.top = locY+px;
         var t = document.createTextNode(text);  
         btn.appendChild(t);
         document.body.appendChild(btn);
         addBr();addBr();
       }
-      function addTxt(location, text){
-        var btn = document.createElement("INPUT"); 
+      function addTxt(locX, locY, text){
+        var txt = document.createElement("INPUT"); 
+        txt.style.left = locX+px;
+        txt.style.top = locY+px;
         var t = document.createTextNode(text);  
-        btn.appendChild(t);
-        document.body.appendChild(btn);
+        txt.appendChild(t);
+        document.body.appendChild(txt);
         addBr();addBr();
       }
       function addBr(){

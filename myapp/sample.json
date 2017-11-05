@@ -1,19 +1,22 @@
 {
     "lbl": 
         {
-            "location": "location here",
+            "locationx": "500",
+            "locationy": "50",
             "text": "text on label here",
             "type": "lbl"
         },
     "btn": 
         {
-            "location": "location here",
+            "locationx": "500",
+            "locationy": "400",
             "text": "text on btn here",
             "type": "btn"
         },
     "txt": 
         {
-            "location": "location here",
+            "locationx": "500",
+            "locationy": "600",
             "text": "text on txt here",
             "type": "txt"
         }
