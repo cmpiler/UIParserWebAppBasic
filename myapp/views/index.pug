@@ -94,20 +94,8 @@ block content
                   var text = json[key][c]["text"];
                   var uiType = json[key][c]["type"];
                   var layer = json[key][c]["layer"];
-
-                  console.log(locX + ", " +locY + ", " + text);
-
-                  addBr();addBr();
-
-                  if (uiType === "lbl"){
-                    addLbl(w, h, locX, locY, text);
-                    alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
-                  }else if (uiType === "btn"){
-                    addBtn(w, h, locX, locY, text);
-                  }else if(uiType === "txt"){
-                    addTxt(w, h, locX, locY, text);
-                  }
-
+                  
+                  addElement(locX, locY, w, h, text, uiType, layer);
                 }
               }catch(e){
                 if (json.hasOwnProperty(key)) {
@@ -119,19 +107,7 @@ block content
                   var uiType = json[key]["type"];
                   var layer = json[key]["layer"];
 
-                  console.log(locX + ", " +locY + ", " + text);
-
-                  addBr();addBr();
-
-                  if (uiType === "lbl"){
-                    addLbl(w, h, locX, locY, text);
-                    alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
-                  }else if (uiType === "btn"){
-                    addBtn(w, h, locX, locY, text);
-                  }else if(uiType === "txt"){
-                    addTxt(w, h, locX, locY, text);
-                  }
-
+                  addElement(locX, locY, w, h, text, uiType, layer);
                 }
               }
             }
@@ -143,6 +119,20 @@ block content
       var px = "px";
       var topPadding = 150;
 
+      function addElement(locX, locY, w, h, text, uiType, layer){
+        console.log(locX + ", " +locY + ", " + text);
+
+        addBr();addBr();
+
+        if (uiType === "lbl"){
+          addLbl(w, h, locX, locY, text);
+          alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
+        }else if (uiType === "btn"){
+          addBtn(w, h, locX, locY, text);
+        }else if(uiType === "txt"){
+          addTxt(w, h, locX, locY, text);
+        }
+      }
       function addLbl(w, h, locX, locY, text){
         var lbl = document.createElement("LABEL"); 
         try{
@@ -191,9 +181,9 @@ block content
         }catch(e){
           console.log(e)
         }
-        var t = document.createTextNode(text);  
-        
-        txt.appendChild(t);
+        //var t = document.createTextNode(text);  
+        //txt.appendChild(t);
+        txt.setAttribute("value", text)
         document.body.appendChild(txt);
         addBr();addBr();
       }
