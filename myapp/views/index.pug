@@ -2,7 +2,7 @@ extends layout
 
 block content
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-  h1 CMPILERPROS UI Parser Demo
+  h1(id='header1') CMPILERPROS UI Parser Demo
   p Let's start by dragging and dropping a JSON file between the title and this text
   head
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
@@ -72,6 +72,7 @@ block content
 
             if (uiType === "lbl"){
               addLbl(locX, locY, text);
+              alert(document.getElementById(createUIID("lbl", locX, locY)).style.left);
             }else if (uiType === "btn"){
               addBtn(locX, locY, text);
             }else if(uiType === "txt"){
@@ -83,36 +84,67 @@ block content
       }
 
       var px = "px";
+      var topPadding = 150;
+
       function addLbl(locX, locY, text){
         var lbl = document.createElement("LABEL"); 
-        lbl.id = "lbl"
+        try{
+          lbl.style.position="absolute";
+          lbl.style.left = locX+px;
+          lbl.style.top = (parseInt(locY)+topPadding).toString()+px;
+        }catch(e){
+          console.log(e)
+        }
+        lbl.id = createUIID("lbl", locX, locY);
         var t = document.createTextNode(text);  
+
         lbl.appendChild(t);
         document.body.appendChild(lbl);
-        document.getElementById("lbl").style.left = "100px";
         addBr();addBr();
       }
       function addBtn(locX, locY, text){
         var btn = document.createElement("BUTTON"); 
-        btn.style.left = locX+px;
-        btn.style.top = locY+px;
+        try{
+          btn.id = createUIID("btn", locX, locY);
+          btn.style.position="absolute";
+          btn.style.top = (parseInt(locY)+topPadding).toString()+px;
+          btn.style.left = locX+px;
+        }catch(e){
+          console.log(e)
+        }
         var t = document.createTextNode(text);  
+
         btn.appendChild(t);
         document.body.appendChild(btn);
         addBr();addBr();
       }
       function addTxt(locX, locY, text){
         var txt = document.createElement("INPUT"); 
-        txt.style.left = locX+px;
-        txt.style.top = locY+px;
+        txt.id = createUIID("txt", locX, locY);
+        try{
+          txt.style.position="absolute";
+          txt.style.left = locX+px;
+          txt.style.top = (parseInt(locY)+topPadding).toString()+px;
+        }catch(e){
+          console.log(e)
+        }
         var t = document.createTextNode(text);  
+        
         txt.appendChild(t);
         document.body.appendChild(txt);
+        txt.style.left = locX+px;
+        txt.style.top = locY+px;
         addBr();addBr();
       }
       function addBr(){
         var br = document.createElement("BR");
         document.body.appendChild(br);
+      }
+      function createUIID(type, locX, locY){
+        return type+locX+','+locY;
+      }
+      function normalizeCoordinates(x, y){
+        //?
       }
 
       }
