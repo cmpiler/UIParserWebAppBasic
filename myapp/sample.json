@@ -5,7 +5,7 @@
         "width": "84",
         "text": "Textbox",
         "type": "txt",
-        "layer": "0",
+        "layer": "9",
         "height": "24"
     }, {
         "locationy": "77",
@@ -13,7 +13,7 @@
         "width": "84",
         "text": "Textbox",
         "type": "txt",
-        "layer": "1",
+        "layer": "8",
         "height": "24"
     }, {
         "locationy": "93",
@@ -21,7 +21,7 @@
         "width": "84",
         "text": "Textbox",
         "type": "txt",
-        "layer": "2",
+        "layer": "7",
         "height": "34"
     }, {
         "locationy": "118",
@@ -29,7 +29,7 @@
         "width": "84",
         "text": "Textbox",
         "type": "txt",
-        "layer": "3",
+        "layer": "6",
         "height": "24"
     }, {
         "locationy": "134",
@@ -37,7 +37,7 @@
         "width": "84",
         "text": "Textbox",
         "type": "txt",
-        "layer": "4",
+        "layer": "5",
         "height": "24"
     }, {
         "locationy": "151",
@@ -45,7 +45,7 @@
         "width": "84",
         "text": "Textbox",
         "type": "txt",
-        "layer": "5",
+        "layer": "4",
         "height": "24"
     }],
     "lbl": [],
@@ -55,7 +55,7 @@
         "width": "84",
         "text": "Button",
         "type": "btn",
-        "layer": "6",
+        "layer": "3",
         "height": "24"
     }, {
         "locationy": "324",
@@ -63,7 +63,7 @@
         "width": "84",
         "text": "Button",
         "type": "btn",
-        "layer": "7",
+        "layer": "2",
         "height": "24"
     }, {
         "locationy": "310",
@@ -71,7 +71,7 @@
         "width": "84",
         "text": "Button",
         "type": "btn",
-        "layer": "8",
+        "layer": "1",
         "height": "24"
     }, {
         "locationy": "295",
@@ -79,7 +79,7 @@
         "width": "84",
         "text": "Button",
         "type": "btn",
-        "layer": "9",
+        "layer": "0",
         "height": "24"
     }]
 }
